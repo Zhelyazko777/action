@@ -4,12 +4,12 @@ const execa = require('execa')
 const split = require('argv-split')
 
 void function main() {
-  try {
+ // try {
     ssh()
     dep()
-  } catch (err) {
+/*  } catch (err) {
     core.setFailed(err.message)
-  }
+  }*/
 }()
 
 function ssh() {
