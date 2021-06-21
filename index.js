@@ -36,7 +36,7 @@ function ssh() {
 
   const sshConfig = core.getInput('ssh-config')
   if (sshConfig !== '') {
-    fs.writeFile(`${ssh}/config`, sshConfig)
+    fs.writeFileSync(`${ssh}/config`, sshConfig)
   }
 }
 
