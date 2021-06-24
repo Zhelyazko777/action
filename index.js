@@ -59,11 +59,7 @@ function dep() {
   const subprocess = execa(dep, []);
 
   subprocess.stdout.pipe(process.stdout);
- 
- 
-  const subprocess2 = execa('ls -a', []);
 
-  subprocess2.stdout.pipe(process.stdout);
 
   subprocess.catch(err => {
     core.setFailed(err.shortMessage)
