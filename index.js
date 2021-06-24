@@ -41,8 +41,8 @@ function ssh() {
 }
 
 function dep() {
-  let dep
-  for (let c of ['vendor/bin/dep', 'bin/dep', 'deployer.phar']) {
+  let dep = 'php deployer.phar';
+  /*for (let c of ['vendor/bin/dep', 'bin/dep', 'deployer.phar']) {
     if (fs.existsSync(c)) {
       dep = c
       break
@@ -53,7 +53,7 @@ function dep() {
     execa.commandSync('curl -LO https://deployer.org/deployer.phar')
     execa.commandSync('sudo chmod +x deployer.phar')
     dep = 'deployer.phar'
-  }
+  }*/
 
   const subprocess = execa(dep, split(core.getInput('dep')))
 
