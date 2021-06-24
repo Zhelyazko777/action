@@ -41,7 +41,7 @@ function ssh() {
 }
 
 function dep() {
-  let dep = 'pwd';
+  let dep = 'php';
   execa.commandSync('sudo chmod +x deployer.phar');
   /*for (let c of ['vendor/bin/dep', 'bin/dep', 'deployer.phar']) {
     if (fs.existsSync(c)) {
@@ -56,7 +56,7 @@ function dep() {
     dep = 'deployer.phar'
   }*/
 //split(core.getInput('dep'))
-  const subprocess = execa(dep, []);
+  const subprocess = execa(dep, [ '-v' ]);
 
   subprocess.stdout.pipe(process.stdout);
 
