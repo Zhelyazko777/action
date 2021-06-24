@@ -4,12 +4,8 @@ const execa = require('execa')
 const split = require('argv-split')
 
 void function main() {
- // try {
     ssh()
     dep()
-/*  } catch (err) {
-    core.setFailed(err.message)
-  }*/
 }()
 
 function ssh() {
@@ -41,25 +37,9 @@ function ssh() {
 }
 
 function dep() {
-  let dep = 'php';
-  execa.commandSync('sudo chmod +x deployer.phar');
-  /*for (let c of ['vendor/bin/dep', 'bin/dep', 'deployer.phar']) {
-    if (fs.existsSync(c)) {
-      dep = c
-      break
-    }
-  }
-
-  if (!dep) {
-    execa.commandSync('curl -LO https://deployer.org/deployer.phar')
-    execa.commandSync('sudo chmod +x deployer.phar')
-    dep = 'deployer.phar'
-  }*/
-//split(core.getInput('dep'))
-  const subprocess = execa(dep, [ 'deployer.phar', ...split(core.getInput('dep')) ]);
-
+  execa.commandSync('sudo chmod +x deployer.phar')
+  const subprocess = execa('php', [ 'deployer.phar', ...split(core.getInput('dep')) ])
   subprocess.stdout.pipe(process.stdout);
-
 
   subprocess.catch(err => {
     core.setFailed(err.shortMessage)
