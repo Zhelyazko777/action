@@ -55,8 +55,8 @@ function dep() {
     execa.commandSync('sudo chmod +x deployer.phar')
     dep = 'deployer.phar'
   }*/
-
-  const subprocess = execa(dep, split(core.getInput('dep')))
+//split(core.getInput('dep'))
+  const subprocess = execa(dep, []);
 
   subprocess.stdout.pipe(process.stdout);
 
