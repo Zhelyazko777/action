@@ -41,7 +41,7 @@ function ssh() {
 }
 
 function dep() {
-  let dep = 'php deployer.phar';
+  let dep = 'pwd';
   execa.commandSync('sudo chmod +x deployer.phar');
   /*for (let c of ['vendor/bin/dep', 'bin/dep', 'deployer.phar']) {
     if (fs.existsSync(c)) {
@@ -59,6 +59,11 @@ function dep() {
   const subprocess = execa(dep, []);
 
   subprocess.stdout.pipe(process.stdout);
+ 
+ 
+  const subprocess2 = execa('ls -a', []);
+
+  subprocess2.stdout.pipe(process.stdout);
 
   subprocess.catch(err => {
     core.setFailed(err.shortMessage)
