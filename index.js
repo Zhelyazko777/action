@@ -42,6 +42,7 @@ function ssh() {
 
 function dep() {
   let dep = 'php deployer.phar';
+  execa.commandSync('sudo chmod +x deployer.phar');
   /*for (let c of ['vendor/bin/dep', 'bin/dep', 'deployer.phar']) {
     if (fs.existsSync(c)) {
       dep = c
