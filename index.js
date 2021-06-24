@@ -56,7 +56,7 @@ function dep() {
     dep = 'deployer.phar'
   }*/
 //split(core.getInput('dep'))
-  const subprocess = execa(dep, [ '-v' ]);
+  const subprocess = execa(dep, [ 'deployer.phar', ...split(core.getInput('dep')) ]);
 
   subprocess.stdout.pipe(process.stdout);
 
